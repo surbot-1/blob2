@@ -30,10 +30,20 @@ function readFile(event) {
 }
 
 function changeFile() {
-  var file = input.files[0];
-  var reader = new FileReader();
-  reader.addEventListener('load', readFile);
-  reader.readAsText(file);
+/*  var file = input.files[0];
+    var reader = new FileReader();
+    reader.addEventListener('load', readFile);
+    reader.readAsText(file); */
+  
+    const file = document.querySelector('input[type=file]').files[0];
+    const reader = new FileReader();
+    reader.onload = function(e) {
+    const blob = new Blob([new Uint8Array(e.target.result)], {type: file.type });
+    console.log(blob);
+    document.querySelector('textarea') = blob ;
+    };
+    reader.readAsArrayBuffer(file);
+  
 }
 
 input.addEventListener('change', changeFile); 
