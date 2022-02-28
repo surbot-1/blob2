@@ -48,10 +48,10 @@ function changeFile() {
     reader.onload = function(e) {
      //  blob = new Blob([new Uint8Array(e.target.result)], {type: file.type });
    // console.log(blob); alert('readAsArrayBuffer'+blob);
-    // const text = await blob.text();
+     var text = e.target.result ;
      textarea.textContent = e.target.result;
-    document.querySelector('#div4') = e.target.result ;
-    }
+     document.querySelector('#div4') = text ;
+     }
 /*  // var reader = new FileReader();
   reader.readAsText(blob); alert('readBlob');
   reader.addEventListener('loadend', () => {
