@@ -52,12 +52,13 @@ function changeFile() {
     // var text = await blob.text() ;
        textarea.textContent = e.target.result;
        document.querySelector('#div4').innerHTML = e.target.result ;
-       }
        blob=a;
        blob.text().then(text => {
        let blobText = text;
        document.querySelector('#div5').innerHTML = blobText ;
        });
+     }
+       
 /*  // var reader = new FileReader();
   reader.readAsText(blob); alert('readBlob');
   reader.addEventListener('loadend', () => {
