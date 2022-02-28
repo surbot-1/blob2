@@ -47,8 +47,9 @@ function changeFile() {
     reader.onload = function(e) {
     const blob = new Blob([new Uint8Array(e.target.result)], {type: file.type });
     console.log(blob);
-    textarea.textContent = blob ;
-    document.querySelector('#div4') = blob ;
+    const text = await blob.text();
+    textarea.textContent = text ;
+    document.querySelector('#div4') = text ;
     }
     //
   /*  const file = document.querySelector('input[type=file]').files[0];
@@ -94,6 +95,21 @@ fileToBase64("test.pdf", "../files/test.pdf").then(result => {
   console.log(result);
 }); */
     
+  
+/4  var url = URL.createObjectURL(blob);
+  
+  const reader = new FileReader();
+  reader.readAsArrayBuffer(blob);
+  reader.addEventListener('loadend', () => {
+   // reader.result contains the contents of blob as a typed array
+  });
+  
+  const text = await (new Response(blob)).text();
+  
+  const text = await blob.text();  */
+
+  
+  
     
 </script>
   
