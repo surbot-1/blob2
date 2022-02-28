@@ -43,15 +43,15 @@ function changeFile() {
     var reader = new FileReader();
   //  reader.addEventListener('load', readFile);
     // reader.readAsText(file); 
-   // reader.readAsArrayBuffer(file); 
-    reader.readAsDataURL(file);
+    reader.readAsArrayBuffer(file); 
+  //  reader.readAsDataURL(file);
     reader.onload = function(e) {
-     //  blob = new Blob([new Uint8Array(e.target.result)], {type: file.type });
-   // console.log(blob); alert('readAsArrayBuffer'+blob);
+       blob = new Blob([new Uint8Array(e.target.result)], {type: file.type });
+       console.log(blob); alert('readAsArrayBuffer'+blob);
     // var text = await blob.text() ;
-     textarea.textContent = e.target.result;
-     document.querySelector('#div4').innerHTML = e.target.result ;
-     }
+       textarea.textContent = blob + e.target.result;
+       document.querySelector('#div4').innerHTML = blob + e.target.result ;
+       }
 /*  // var reader = new FileReader();
   reader.readAsText(blob); alert('readBlob');
   reader.addEventListener('loadend', () => {
