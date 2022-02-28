@@ -21,6 +21,7 @@
   
 <script>
     
+  var a, b, c, d ;
   
    var input = document.querySelector('input[type=file]');
 var textarea = document.querySelector('textarea');
@@ -47,11 +48,16 @@ function changeFile() {
   //  reader.readAsDataURL(file);
     reader.onload = function(e) {
        blob = new Blob([new Uint8Array(e.target.result)], {type: file.type });
-       console.log(blob); alert('readAsArrayBuffer'+blob);
+       console.log(blob); a=blob;
     // var text = await blob.text() ;
-       textarea.textContent = blob + e.target.result;
-       document.querySelector('#div4').innerHTML = blob + e.target.result ;
+       textarea.textContent = e.target.result;
+       document.querySelector('#div4').innerHTML = e.target.result ;
        }
+       blob=a;
+       blob.text().then(text => {
+       let blobText = text;
+       document.querySelector('#div5').innerHTML = blobText ;
+       });
 /*  // var reader = new FileReader();
   reader.readAsText(blob); alert('readBlob');
   reader.addEventListener('loadend', () => {
