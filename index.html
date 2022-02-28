@@ -28,9 +28,8 @@ var textarea = document.querySelector('textarea');
 input.addEventListener('change', changeFile); 
   
 function readFile(event) {
-  textarea.textContent = event.target.result;
-    textarea.textContent = event.target.result;
-  console.log(event.target.result);
+    textarea.textContent = event.target.result ;
+    console.log(event.target.result);
    // const blob = new Blob([new Uint8Array(event.target.result)], {type: file.type });
     // console.log(blob);
     textarea.textContent = blob ;
