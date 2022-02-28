@@ -31,21 +31,25 @@ function readFile(event) {
   textarea.textContent = event.target.result;
     textarea.textContent = event.target.result;
   console.log(event.target.result);
-    const blob = new Blob([new Uint8Array(event.target.result)], {type: file.type });
-    console.log(blob);
+   // const blob = new Blob([new Uint8Array(event.target.result)], {type: file.type });
+    // console.log(blob);
     textarea.textContent = blob ;
-    document.querySelector('#div4') = blob ;
+    // document.querySelector('#div4') = blob ;
   }
 
 function changeFile() {
     //
     var file = input.files[0];
     var reader = new FileReader();
-    reader.addEventListener('load', readFile);
+  //  reader.addEventListener('load', readFile);
     // reader.readAsText(file); 
     reader.readAsArrayBuffer(file);
    // reader.readAsDataURL(file);
-    
+    reader.onload = function(e) {
+    const blob = new Blob([new Uint8Array(e.target.result)], {type: file.type });
+    console.log(blob);
+    textarea.textContent = blob ;
+    }
     //
   /*  const file = document.querySelector('input[type=file]').files[0];
     const reader = new FileReader();
@@ -53,7 +57,7 @@ function changeFile() {
     const blob = new Blob([new Uint8Array(e.target.result)], {type: file.type });
     console.log(blob);
     document.querySelector('#div4') = blob ;
-    };
+    }
     reader.readAsArrayBuffer(file); */
     //
   /*  const file = document.querySelector('input[type=file]').files[0];
@@ -79,12 +83,12 @@ export const fileToBase64 = (filename, filepath) => {
     // Read file content on file loaded event
     reader.onload = function(event) {
       resolve(event.target.result);
-    };
+    }
     
     // Convert data to base64 
     reader.readAsDataURL(file);
   });
-};
+}
 // Example call:
 fileToBase64("test.pdf", "../files/test.pdf").then(result => {
   console.log(result);
