@@ -9,12 +9,13 @@
   
 <body>
   
-  <input class="FullWidth" type="file" name="mtlFileInput" value="" id="mtlFileInput" 
-    onchange="readMtlAtClient()" accept=".mtl"/> <br>
   <!--
+  <input class="FullWidth" type="file" name="mtlFileInput" value="" id="mtlFileInput" 
+  onchange="readMtlAtClient()" accept=".mtl"/> <br>
+  -->
 <input type="file">
 <textarea rows="10" cols="50"></textarea>
-   -->
+   
   <div id="div4"> </div>
   <div id="div5"> </div>
   <div id="div6"> </div>
@@ -51,9 +52,9 @@
   var a, b, c, d ;
   
    var input = document.querySelector('input[type=file]');
-var textarea = document.querySelector('textarea');
+   var textarea = document.querySelector('textarea');
   
-// // // input.addEventListener('change', changeFile); 
+   input.addEventListener('change', changeFile); 
   
 /* function readFile(event) {
     textarea.textContent = event.target.result ;
