@@ -27,14 +27,14 @@ var textarea = document.querySelector('textarea');
   
 input.addEventListener('change', changeFile); 
   
-function readFile(event) {
+/* function readFile(event) {
     textarea.textContent = event.target.result ;
     console.log(event.target.result);
    // const blob = new Blob([new Uint8Array(event.target.result)], {type: file.type });
     // console.log(blob);
     textarea.textContent = blob ;
     // document.querySelector('#div4') = blob ;
-  }
+  } */
       
 function changeFile() {
     //
@@ -52,8 +52,8 @@ function changeFile() {
     // textarea.textContent = text ;
    // document.querySelector('#div4') = text ;
     }
-  const reader = new FileReader();
-  reader.readAsArrayBuffer(blob);
+  var reader = new FileReader();
+  reader.readAsText(blob);
   reader.addEventListener('loadend', () => {
    // reader.result contains the contents of blob as a typed array
   textarea.textContent = reader.result ;
