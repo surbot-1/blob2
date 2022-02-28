@@ -29,17 +29,18 @@ input.addEventListener('change', changeFile);
   
 function readFile(event) {
   textarea.textContent = event.target.result;
-    textarea.textContent = event.target.result(0);
+    textarea.textContent = event.target.result;
   console.log(event.target.result);
   }
 
 function changeFile() {
-  
+    //
     var file = input.files[0];
     var reader = new FileReader();
     reader.addEventListener('load', readFile);
     // reader.readAsText(file); 
-    reader.readAsDataURL(file);
+    reader.readAsArrayBuffer(file);
+   // reader.readAsDataURL(file);
     //
   /*  const file = document.querySelector('input[type=file]').files[0];
     const reader = new FileReader();
