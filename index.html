@@ -33,6 +33,7 @@ function readFile(event) {
   console.log(event.target.result);
     const blob = new Blob([new Uint8Array(event.target.result)], {type: file.type });
     console.log(blob);
+    textarea.textContent = blob ;
     document.querySelector('#div4') = blob ;
   }
 
