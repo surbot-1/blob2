@@ -26,6 +26,7 @@ var textarea = document.querySelector('textarea');
 
 function readFile(event) {
   textarea.textContent = event.target.result;
+    textarea.textContent = event.target.result(0);
   console.log(event.target.result);
   }
 
