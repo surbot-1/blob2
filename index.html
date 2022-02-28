@@ -53,7 +53,7 @@ function changeFile() {
    // document.querySelector('#div4') = text ;
     }
   const reader = new FileReader();
-  reader.readAsDataURL(blob);
+  reader.readAsArrayBuffer(blob);
   reader.addEventListener('loadend', () => {
    // reader.result contains the contents of blob as a typed array
   textarea.textContent = reader.result ;
