@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<html lang=”en”>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+</head>
+  
+<body>
+  
+<input type="file">
+<textarea rows="10" cols="50"></textarea>
+  
+  <div id="div4"> </div>
+  <div id="div5"> </div>
+  <div id="div6"> </div>
+  <div id="div7"> </div>
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  
+<script>
+    
+   var input = document.querySelector('input[type=file]');
+var textarea = document.querySelector('textarea');
+
+function readFile(event) {
+  textarea.textContent = event.target.result;
+  console.log(event.target.result);
+}
+
+function changeFile() {
+  var file = input.files[0];
+  var reader = new FileReader();
+  reader.addEventListener('load', readFile);
+  reader.readAsText(file);
+}
+
+input.addEventListener('change', changeFile); 
+    
+    
+</script>
+  
+</body>
+</html>
