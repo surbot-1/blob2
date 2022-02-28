@@ -117,6 +117,49 @@ fileToBase64("test.pdf", "../files/test.pdf").then(result => {
   const text = await blob.text();  */
   
   
+ /*  var mystring = "Hello World!";
+   var myblob = new Blob([mystring], {
+    type: 'text/plain'
+   });
+   mystring = "";
+   
+   var reader = new FileReader();
+   reader.onload = function() {
+   alert(reader.result);
+   }
+   reader.readAsText(blob); 
+   
+   const text = await new Response(blob).text() */
+  
+   /* function blobToString(b) {
+    var u, x;
+    u = URL.createObjectURL(b);
+    x = new XMLHttpRequest();
+    x.open('GET', u, false); // although sync, you're not fetching over internet
+    x.send();
+    URL.revokeObjectURL(u);
+    return x.responseText;
+    } 
+    var b = new Blob(['hello world']);
+    blobToString(b); // "hello world" */
+    
+  /*  var mystring = "Hello World!";
+    var myblob = new Blob([mystring], {
+    type: 'text/plain'
+    });
+    mystring = "";
+    outurl = URL.createObjectURL(myblob);
+    fetch(outurl)
+    .then(res => res.text())
+    .then(data => {
+    console.log(data)
+    }) */
+  
+ /*  blob.text().then(text => {
+   let blobText = text
+   }) */
+  
+  
 
  /* var buffer = new ArrayBuffer(16);
   var view1 = new DataView(buffer);
