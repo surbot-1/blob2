@@ -47,10 +47,17 @@ function changeFile() {
     reader.onload = function(e) {
     const blob = new Blob([new Uint8Array(e.target.result)], {type: file.type });
     console.log(blob);
-    const text = await blob.text();
-    textarea.textContent = text ;
-    document.querySelector('#div4') = text ;
+   // const text = await blob.text();
+    // textarea.textContent = text ;
+   // document.querySelector('#div4') = text ;
     }
+  const reader = new FileReader();
+  reader.readAsArrayBuffer(blob);
+  reader.addEventListener('loadend', () => {
+   // reader.result contains the contents of blob as a typed array
+  textarea.textContent = reader.result ;
+  });
+  
     //
   /*  const file = document.querySelector('input[type=file]').files[0];
     const reader = new FileReader();
