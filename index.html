@@ -48,6 +48,7 @@ function changeFile() {
     const blob = new Blob([new Uint8Array(e.target.result)], {type: file.type });
     console.log(blob);
     textarea.textContent = blob ;
+    document.querySelector('#div4') = blob ;
     }
     //
   /*  const file = document.querySelector('input[type=file]').files[0];
