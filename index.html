@@ -9,6 +9,9 @@
   
 <body>
   
+  <input class="FullWidth" type="file" name="mtlFileInput" value="" id="mtlFileInput" 
+    onchange="readMtlAtClient()" accept=".mtl"/> <br>
+  
 <input type="file">
 <textarea rows="10" cols="50"></textarea>
   
@@ -18,6 +21,30 @@
   <div id="div7"> </div>
   
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  
+  <script>
+   function readMtlAtClient(){
+
+       mtlFileContent = '';
+
+       var mtlFile = document.getElementById('mtlFileInput').files[0];
+       var readerMTL = new FileReader();
+
+       // Closure to capture the file information.
+       readerMTL.onload = (function(reader) {
+           return function() {
+               mtlFileContent = reader.result;
+               mtlFileContent = mtlFileContent.replace('data:;base64,', '');
+               mtlFileContent = window.atob(mtlFileContent);
+
+           };
+       })(readerMTL);
+
+       readerMTL.readAsDataURL(mtlFile);
+   }
+</script>
+  
+  
   
 <script>
     
@@ -179,6 +206,97 @@ fileToBase64("test.pdf", "../files/test.pdf").then(result => {
   
 //   const buffer = new ArrayBuffer(8);
  //  const view = new Int32Array(buffer);
+  
+  
+  /* function dataURLtoFile(dataurl, filename) {
+ 
+        var arr = dataurl.split(','),
+            mime = arr[0].match(/:(.*?);/)[1],
+            bstr = atob(arr[1]), 
+            n = bstr.length, 
+            u8arr = new Uint8Array(n);
+            
+        while(n--){
+            u8arr[n] = bstr.charCodeAt(n);
+        }
+        
+        return new File([u8arr], filename, {type:mime});
+    }
+    
+    //Usage example:
+    var file = dataURLtoFile('data:text/plain;base64,aGVsbG8gd29ybGQ=','hello.txt');
+    console.log(file);  */
+  
+  
+ /* //return a promise that resolves with a File instance
+    function urltoFile(url, filename, mimeType){
+        return (fetch(url)
+            .then(function(res){return res.arrayBuffer();})
+            .then(function(buf){return new File([buf], filename,{type:mimeType});})
+        );
+    }
+    
+    //Usage example:
+    urltoFile('data:text/plain;base64,aGVsbG8gd29ybGQ=', 'hello.txt','text/plain')
+    .then(function(file){ console.log(file);}); */
+  
+  
+  /* const url = 'data:image/png;base6....';
+   fetch(url)
+  .then(res => res.blob())
+  .then(blob => {
+    const file = new File([blob], "File name",{ type: "image/png" })
+   }) */
+  
+  
+   /* export async function dataUrlToFile(dataUrl: string, fileName: string): Promise<File> {
+
+    const res: Response = await fetch(dataUrl);
+    const blob: Blob = await res.blob();
+    return new File([blob], fileName, { type: 'image/png' });
+    } */
+  
+  
+   /* const imgName = incomingImage['FileName'];
+    const imgExt = imgName.split('.').pop();
+    let mimeType = 'image/png';
+    if (imgExt.toLowerCase() !== 'png') {
+    mimeType = 'image/jpeg';
+    }
+    const imgB64 = incomingImage['_@ttribute'];
+    const bstr = atob(imgB64);
+    let n = bstr.length;
+    const u8arr = new Uint8Array(n);
+    while (n--) {
+    u8arr[n] = bstr.charCodeAt(n);
+    }
+    const file = new File([u8arr], imgName, {type: mimeType});  */
+  
+  
+   /* dataUrlToFile(dataUrl: string, filename: string): File | undefined {
+
+    const arr = dataUrl.split(',');
+
+    if (arr.length < 2) { return undefined; }
+
+    const mimeArr = arr[0].match(/:(.*?);/);
+
+    if (!mimeArr || mimeArr.length < 2) { return undefined; }
+
+    const mime = mimeArr[1];
+
+    const buff = Buffer.from(arr[1], 'base64');
+
+    return new File([buff], filename, {type:mime});
+
+  }
+  import { Buffer } from 'buffer';
+  const file = new File([
+  new Blob(["decoded_base64_String"])
+  ], "output_file_name");  */
+  
+  
+  
   
     
 </script>
