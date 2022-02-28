@@ -40,10 +40,10 @@ function changeFile() {
     //
     var blob;
     var file = input.files[0];
-    var reader = new FileReader();
+    var reader = new FileReader(); alert('fileReader');
   //  reader.addEventListener('load', readFile);
     // reader.readAsText(file); 
-    reader.readAsArrayBuffer(file); alert('readAsArrayBuffer');
+   // reader.readAsArrayBuffer(file); 
    // reader.readAsDataURL(file);
     reader.onload = function(e) {
        blob = new Blob([new Uint8Array(e.target.result)], {type: file.type });
