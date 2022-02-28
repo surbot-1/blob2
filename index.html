@@ -35,9 +35,10 @@ function readFile(event) {
     textarea.textContent = blob ;
     // document.querySelector('#div4') = blob ;
   }
-
+      
 function changeFile() {
     //
+    var blob;
     var file = input.files[0];
     var reader = new FileReader();
   //  reader.addEventListener('load', readFile);
@@ -45,14 +46,14 @@ function changeFile() {
     reader.readAsArrayBuffer(file);
    // reader.readAsDataURL(file);
     reader.onload = function(e) {
-    const blob = new Blob([new Uint8Array(e.target.result)], {type: file.type });
+       blob = new Blob([new Uint8Array(e.target.result)], {type: file.type });
     console.log(blob);
    // const text = await blob.text();
     // textarea.textContent = text ;
    // document.querySelector('#div4') = text ;
     }
   const reader = new FileReader();
-  reader.readAsArrayBuffer(blob);
+  reader.readAsDataURL(blob);
   reader.addEventListener('loadend', () => {
    // reader.result contains the contents of blob as a typed array
   textarea.textContent = reader.result ;
@@ -114,7 +115,16 @@ fileToBase64("test.pdf", "../files/test.pdf").then(result => {
   const text = await (new Response(blob)).text();
   
   const text = await blob.text();  */
+  
+  
 
+ /* var buffer = new ArrayBuffer(16);
+  var view1 = new DataView(buffer);
+  var view2 = new Int8Array(buffer);
+  view1.setInt32(0, 0x76543210);
+  document.write(view1.getInt32(0).toString(16) + "<br>"); 
+  document.write(view1.getInt8(0).toString(16) + "<br>"); 
+  document.write(view2[0].toString(16)); */
   
   
     
