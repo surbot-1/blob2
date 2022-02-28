@@ -41,7 +41,7 @@ function changeFile() {
     reader.onload = function(e) {
     const blob = new Blob([new Uint8Array(e.target.result)], {type: file.type });
     console.log(blob);
-    document.querySelector('textarea') = blob ;
+    document.querySelector('#div4') = blob ;
     };
     reader.readAsArrayBuffer(file); 
     //
