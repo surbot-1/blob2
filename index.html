@@ -339,7 +339,7 @@ link.href = url;
 link.innerText = 'Open the array URL';
 
 document.body.appendChild(link);
- convert();
+// convert();
   
   
 /* const reader = new FileReader();
@@ -352,11 +352,11 @@ reader.readAsArrayBuffer(blob); */
   // const text = await (new Response(blob)).text();
   // const text = await blob.text();
 
-  function convert(){
-  const text = await url.text();
+ // function convert(){
+//  const text = await url.text();
   document.getElementById("div5").innerHTML += text ;
   document.getElementById("div5").innerHTML += "text" ;
-  }
+ // }
   alert('2');
   
   
