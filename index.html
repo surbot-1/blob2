@@ -377,7 +377,7 @@ for(let i = 0; i < 59; i++) {
 }
 
 const url = typedArrayToURL(bytes, 'text/plain');
-// var blob = url;
+
 const link = document.createElement('a');
 link.href = url;
 link.innerText = 'Open the array URL';
@@ -422,6 +422,16 @@ reader.readAsArrayBuffer(blob); */
    }
    reader.readAsArrayBuffer(blob);
   
+  var content = bytes // "What's up , hello world";
+// any kind of extension (.txt,.cpp,.cs,.bat)
+var filename = "hello.txt";
+var blob2 = new Blob([content], {
+type: "text/plain;charset=utf-8"
+  saveAs(blob2, filename); 
+ 
+
+});
+  
   alert('3');
   
   
@@ -441,6 +451,18 @@ console.log(view2.getInt8(0));
    // reader.readAsArrayBuffer(file); 
   //  reader.readAsDataURL(file);
     
+  
+/*  var content = "What's up , hello world";
+// any kind of extension (.txt,.cpp,.cs,.bat)
+var filename = "hello.txt";
+
+var blob = new Blob([content], {
+ type: "text/plain;charset=utf-8"
+});
+
+saveAs(blob, filename); */
+  
+  
   
 </script>
   
