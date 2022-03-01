@@ -409,10 +409,10 @@ reader.readAsArrayBuffer(blob); */
   // document.getElementById("div4").innerHTML += reader.result;
     var bufView = new Uint8Array(buf);
         buffer2 = new ArrayBuffer(1);
-        var view = new DataView(buffer2);
+        var view = new DataView(buffer);
         // view.setInt8(0,bufView[0]);
         // view[0] = bufView[0];
-   document.getElementById("div4").innerHTML += bufView.getUint8(0) ;
+   document.getElementById("div4").innerHTML += bufView ;
   // document.getElementById("div4").innerHTML += "<br>" + view.getInt8(0);
    }
    reader.readAsArrayBuffer(blob);
