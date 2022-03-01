@@ -405,9 +405,13 @@ reader.readAsArrayBuffer(blob); */
    reader.onload = function() {
  //  alert(reader.result);
    var buf = reader.result ;
+   var bufffer = reader.result ;
    document.getElementById("div4").innerHTML += reader.result;
    var bufView = new Uint8Array(buf);
-   document.getElementById("div4").innerHTML += bufView[0] ;
+   // buffer = new ArrayBuffer(8);
+   var view = new DataView(buffer);
+   document.getElementById("div4").innerHTML += bufView ;
+   document.getElementById("div4").innerHTML += view ;
    }
    reader.readAsArrayBuffer(blob);
   
