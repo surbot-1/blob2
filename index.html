@@ -407,12 +407,12 @@ reader.readAsArrayBuffer(blob); */
    var buf = reader.result ;
    var bufffer = reader.result ;
   // document.getElementById("div4").innerHTML += reader.result;
-   var bufView = new Uint8Array(buf);
-        // // buffer = new ArrayBuffer(8);
+    var bufView = new Uint8Array(buf);
+    buffer2 = new ArrayBuffer(8);
     var view = new DataView(buffer);
    // view.setInt8(0, 01234567);
    document.getElementById("div4").innerHTML += bufView ;
-   document.getElementById("div4").innerHTML += view.getInt8(0);
+   document.getElementById("div4").innerHTML += view;
    }
    reader.readAsArrayBuffer(blob);
   
