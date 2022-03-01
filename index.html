@@ -15,6 +15,7 @@
   -->
 <input type="file">
 <textarea rows="10" cols="50"></textarea>
+  <br> <button onclick="convert()">Convert</button>
    
   <div id="div4"> </div>
   <div id="div5"> </div>
@@ -332,12 +333,14 @@ for(let i = 0; i < 59; i++) {
 }
 
 const url = typedArrayToURL(bytes, 'text/plain');
-var blob = url;
+ var blob = url;
 const link = document.createElement('a');
 link.href = url;
 link.innerText = 'Open the array URL';
 
 document.body.appendChild(link);
+ convert();
+  
   
 /* const reader = new FileReader();
 reader.addEventListener('loadend', () => {
@@ -349,9 +352,11 @@ reader.readAsArrayBuffer(blob); */
   // const text = await (new Response(blob)).text();
   // const text = await blob.text();
 
+  function convert(){
   const text = await blob.text();
   document.getElementById("div5").innerHTML += text ;
-
+  document.getElementById("div5").innerHTML += "text" ;
+  }
   alert('2');
   
   
