@@ -410,13 +410,14 @@ reader.readAsArrayBuffer(blob); */
     var bufView = new Uint8Array(buf);
         buffer2 = new ArrayBuffer(8);
         var view = new DataView(buffer2);
-        view.setInt8(0,bufView[0]);
+        // view.setInt8(0,bufView[0]);
+        view[0] = bufView[0];
    document.getElementById("div4").innerHTML += bufView ;
    document.getElementById("div4").innerHTML += "<br>" + view.getInt8(0);
    }
    reader.readAsArrayBuffer(blob);
   
-  alert('2');
+  alert('3');
   
   
 /*  // create an ArrayBuffer with a size in bytes
