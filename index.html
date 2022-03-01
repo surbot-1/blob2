@@ -361,15 +361,18 @@ reader.readAsArrayBuffer(blob); */
    var reader = new FileReader();
    reader.onload = function() {
  //  alert(reader.result);
-   document.getElementById("div4").innerHTML += text ;
+   document.getElementById("div4").innerHTML += reader.result ;
    }
    reader.readAsText(blob);
   
   alert('2');
   
   
-  
+  // reader.readAsText(file); 
+   // reader.readAsArrayBuffer(file); 
+  //  reader.readAsDataURL(file);
     
+  
 </script>
   
 </body>
