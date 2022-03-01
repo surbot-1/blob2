@@ -15,8 +15,8 @@
   -->
 <input type="file">
 <textarea rows="10" cols="50"></textarea>
- <br> <br> <button onclick="saveFile()">Save</button>
-            <button onclick="downloadFile()">Download</button>
+<button onclick="saveFile()">Save</button>
+<br> <button onclick="downloadFile()">Download</button>
    
   <div id="div4"> </div>
   <div id="div5"> </div>
@@ -369,6 +369,8 @@ new DataView(buffer, byteOffset, byteLength) */
   new Blob(["decoded_base64_String"])
   ], "output_file_name");  */
   
+  
+  
   var blob;
   function typedArrayToURL(typedArray, mimeType) {
   return URL.createObjectURL(blob=(new Blob([typedArray.buffer], {type: mimeType})))
@@ -388,26 +390,8 @@ link.innerText = 'Open the array URL';
 
 document.body.appendChild(link);
 
-   
-   
-   
-   
   
-/* const reader = new FileReader();
-reader.addEventListener('loadend', () => {
-   // reader.result contains the contents of blob as a typed array
-    document.getElementById("div5").innerHTML += (reader.result) ;
-});
-reader.readAsArrayBuffer(blob); */
 
-  // const text = await (new Response(blob)).text();
-  // const text = await blob.text();
-
-/* // function convert(){
-  const text = await (new Response(blob)).text();
-  document.getElementById("div4").innerHTML += text ;
-  document.getElementById("div4").innerHTML += "text" ;
- // } */
   
    var reader = new FileReader();
    reader.onload = function() {
@@ -426,7 +410,7 @@ reader.readAsArrayBuffer(blob); */
    reader.readAsArrayBuffer(blob);
   
   
-  function saveFile() {
+/*  function saveFile() {
     
      file = document.querySelector('input[type=file]').files[0];
      var reader2 = new FileReader();
@@ -443,7 +427,7 @@ reader.readAsArrayBuffer(blob); */
           saveAs(blob2, filename); 
       }
       reader2.readAsDataURL(file);
-    }
+    } */
   
   
 /*  var content = bytes // "What's up , hello world";
