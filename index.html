@@ -15,7 +15,7 @@
   -->
 <input type="file">
 <textarea rows="10" cols="50"></textarea>
-  <br> <button onclick="convert()">Convert</button>
+ <br> <br> <button onclick="convert()">Convert</button>
    
   <div id="div4"> </div>
   <div id="div5"> </div>
@@ -333,7 +333,7 @@ for(let i = 0; i < 59; i++) {
 }
 
 const url = typedArrayToURL(bytes, 'text/plain');
- var blob = url;
+// var blob = url;
 const link = document.createElement('a');
 link.href = url;
 link.innerText = 'Open the array URL';
