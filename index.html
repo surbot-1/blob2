@@ -21,6 +21,7 @@
   <div id="div5"> </div>
   <div id="div6"> </div>
   <div id="div7"> </div>
+  <div id="div8"> </div>
   
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   
@@ -382,8 +383,12 @@ link.href = url;
 link.innerText = 'Open the array URL';
 
 document.body.appendChild(link);
-// convert();
-  
+
+   var reader2 = new FileReader();
+   reader2.onload = function() {
+   document.getElementById("div4").innerHTML += reader.result ;
+   }
+   reader2.readAsDataURL(bytes);
   
 /* const reader = new FileReader();
 reader.addEventListener('loadend', () => {
@@ -412,8 +417,8 @@ reader.readAsArrayBuffer(blob); */
         var view = new DataView(buffer2);
         view.setInt8(0,bufView[0]);
         view.setInt8(1,bufView[1]);
-   document.getElementById("div4").innerHTML += bufView ;
-   document.getElementById("div4").innerHTML += "<br>" + view.getInt8(0);
+   document.getElementById("div5").innerHTML += bufView ;
+   document.getElementById("div5").innerHTML += "<br>" + view.getInt8(0);
    }
    reader.readAsArrayBuffer(blob);
   
