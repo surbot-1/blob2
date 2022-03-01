@@ -384,16 +384,7 @@ link.innerText = 'Open the array URL';
 
 document.body.appendChild(link);
 
-   var reader2 = new FileReader();
-   reader2.onload = function() {
-   document.getElementById("div5").innerHTML += "<br>" + reader2.result ;
-   content = reader2.result;
-   var filename = "abc.txt";
-   var blob2 = new Blob([content], { type: "text/plain;charset=utf-8" });
-   document.getElementById("div5").innerHTML += "<br>" + blob2 ;
-    saveAs(blob2, filename); 
-    }
-    reader2.readAsDataURL(bytes);
+   
    
    
    
@@ -430,6 +421,19 @@ reader.readAsArrayBuffer(blob); */
    }
    reader.readAsArrayBuffer(blob);
   
+  
+     var reader2 = new FileReader();
+     reader2.onload = function() {
+        document.getElementById("div5").innerHTML += "<br>" + reader2.result ;
+        content = "hello world" ;  // reader2.result;
+        var filename = "abc.txt";
+        var blob2 = new Blob([content], { type: "text/plain;charset=utf-8" });
+         document.getElementById("div5").innerHTML += "<br>" + blob2 ;
+         saveAs(blob2, filename); 
+      }
+      reader2.readAsDataURL(bytes);
+  
+  
 /*  var content = bytes // "What's up , hello world";
 // any kind of extension (.txt,.cpp,.cs,.bat)
 var filename = "hello.txt";
@@ -459,6 +463,22 @@ console.log(view2.getInt8(0));
   // reader.readAsText(file); 
    // reader.readAsArrayBuffer(file); 
   //  reader.readAsDataURL(file);
+  
+/* function convert() {
+   var buf = [0x02, 0x01, 0x03, 0x07] ;
+  function ab2str(buf) {
+  return String.fromCharCode.apply(null, new Uint16Array(buf));
+  }
+function str2ab(str2) {
+  var buf2 = new ArrayBuffer(str.length*2); // 2 bytes for each char
+  var bufView = new Uint16Array(buf);
+  for (var i=0, strLen=str.length; i < strLen; i++) {
+    bufView[i] = str.charCodeAt(i);
+    }
+  return buf;
+  }
+}  */
+  
     
   
 /*  var content = "What's up , hello world";
