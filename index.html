@@ -196,7 +196,7 @@ fileToBase64("test.pdf", "../files/test.pdf").then(result => {
   
   
 
- /* var buffer = new ArrayBuffer(16);
+  /* var buffer = new ArrayBuffer(16);
   var view1 = new DataView(buffer);
   var view2 = new Int8Array(buffer);
   view1.setInt32(0, 0x76543210);
@@ -205,9 +205,33 @@ fileToBase64("test.pdf", "../files/test.pdf").then(result => {
   document.write(view2[0].toString(16)); */
   
   
-//   const buffer = new ArrayBuffer(8);
- //  const view = new Int32Array(buffer);
+  /*   const buffer = new ArrayBuffer(8);
+     const view = new DataView(buffer);
+     view.setInt8(0, 0xAB);
+     var x = view.getInt8(0).toString(8);
+     document.write(x); */
   
+ /* // create an ArrayBuffer with a size in bytes
+const buffer = new ArrayBuffer(16);
+
+// Create a couple of views
+const view1 = new DataView(buffer);
+const view2 = new DataView(buffer, 12, 4); //from byte 12 for the next 4 bytes
+view1.setInt8(12, 42); // put 42 in slot 12
+
+console.log(view2.getInt8(0));
+// expected output: 42  */
+  
+/* new DataView(buffer)
+new DataView(buffer, byteOffset)
+new DataView(buffer, byteOffset, byteLength) */
+
+/*  var buffer = new ArrayBuffer(16);
+  var view = new DataView(buffer, 0);
+
+  view.setInt16(1, 42);
+  view.getInt16(1); // 42 */
+
   
   /* function dataURLtoFile(dataurl, filename) {
  
@@ -295,6 +319,26 @@ fileToBase64("test.pdf", "../files/test.pdf").then(result => {
   const file = new File([
   new Blob(["decoded_base64_String"])
   ], "output_file_name");  */
+  
+  
+  function typedArrayToURL(typedArray, mimeType) {
+  return URL.createObjectURL(new Blob([typedArray.buffer], {type: mimeType}))
+}
+
+const bytes = new Uint8Array(59);
+
+for(let i = 0; i < 59; i++) {
+  bytes[i] = 32 + i;
+}
+
+const url = typedArrayToURL(bytes, 'text/plain');
+
+const link = document.createElement('a');
+link.href = url;
+link.innerText = 'Open the array URL';
+
+document.body.appendChild(link);
+
   
   
   
