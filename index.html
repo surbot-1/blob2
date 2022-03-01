@@ -408,10 +408,10 @@ reader.readAsArrayBuffer(blob); */
    var bufffer = reader.result ;
    document.getElementById("div4").innerHTML += reader.result;
    var bufView = new Uint8Array(buf);
-   // buffer = new ArrayBuffer(8);
-   var view = new DataView(buffer);
+        // // buffer = new ArrayBuffer(8);
+   // var view = new DataView(buffer);
    document.getElementById("div4").innerHTML += bufView ;
-   document.getElementById("div4").innerHTML += view.getInt8(0);
+  // document.getElementById("div4").innerHTML += view.getInt8(0);
    }
    reader.readAsArrayBuffer(blob);
   
