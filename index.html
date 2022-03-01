@@ -411,7 +411,7 @@ reader.readAsArrayBuffer(blob); */
    // buffer = new ArrayBuffer(8);
    var view = new DataView(buffer);
    document.getElementById("div4").innerHTML += bufView ;
-   document.getElementById("div4").innerHTML += view ;
+   document.getElementById("div4").innerHTML += view.getInt8(0);
    }
    reader.readAsArrayBuffer(blob);
   
