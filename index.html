@@ -361,7 +361,7 @@ reader.readAsArrayBuffer(blob); */
    var reader = new FileReader();
    reader.onload = function() {
  //  alert(reader.result);
-   document.getElementById("div4").innerHTML += (reader.result).getInt8[0];
+   document.getElementById("div4").innerHTML += (reader.result)[0];
    }
    reader.readAsArrayBuffer(blob);
   
