@@ -352,11 +352,18 @@ reader.readAsArrayBuffer(blob); */
   // const text = await (new Response(blob)).text();
   // const text = await blob.text();
 
- // function convert(){
+/* // function convert(){
   const text = await (new Response(blob)).text();
   document.getElementById("div4").innerHTML += text ;
   document.getElementById("div4").innerHTML += "text" ;
- // }
+ // } */
+  
+   var reader = new FileReader();
+   reader.onload = function() {
+   alert(reader.result);
+   }
+   reader.readAsText(blob);
+  
   alert('2');
   
   
