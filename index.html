@@ -332,7 +332,7 @@ for(let i = 0; i < 59; i++) {
 }
 
 const url = typedArrayToURL(bytes, 'text/plain');
-
+var blob = url;
 const link = document.createElement('a');
 link.href = url;
 link.innerText = 'Open the array URL';
