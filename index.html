@@ -15,7 +15,7 @@
   -->
 <input type="file">
 <textarea rows="10" cols="50"></textarea>
- <br> <br> <button onclick="convert()">Convert</button>
+ <br> <br> <button onclick="saveFile()">Save</button>
    
   <div id="div4"> </div>
   <div id="div5"> </div>
@@ -386,15 +386,17 @@ document.body.appendChild(link);
 
    var reader2 = new FileReader();
    reader2.onload = function() {
-   document.getElementById("div4").innerHTML += reader2.result ;
+   document.getElementById("div5").innerHTML += "<br>" + reader2.result ;
    content = reader2.result;
-   var filename = "hello.txt";
-   var blob2 = new Blob([content], {
-   type: "text/plain;charset=utf-8"
-   saveAs(blob2, filename); 
-   });
-   }
-   reader2.readAsDataURL(bytes);
+   var filename = "abc.txt";
+   var blob2 = new Blob([content], { type: "text/plain;charset=utf-8" });
+   document.getElementById("div5").innerHTML += "<br>" + blob2 ;
+    saveAs(blob2, filename); 
+    }
+    reader2.readAsDataURL(bytes);
+   
+   
+   
   
 /* const reader = new FileReader();
 reader.addEventListener('loadend', () => {
@@ -433,8 +435,9 @@ reader.readAsArrayBuffer(blob); */
 var filename = "hello.txt";
 var blob2 = new Blob([content], {
 type: "text/plain;charset=utf-8"
-  saveAs(blob2, filename); 
- });   */
+ });
+ saveAs(blob2, filename); 
+    */
 
 
   
