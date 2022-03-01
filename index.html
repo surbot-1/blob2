@@ -134,7 +134,7 @@ function changeFile() {
        document.querySelector('#div5').innerHTML += "<br>" + blobText ;
        });
      } 
-     reader.readAsArrayBuffer(file);
+     reader.readAsText(file);
        
 /*  // var reader = new FileReader();
   reader.readAsText(blob); alert('readBlob');
