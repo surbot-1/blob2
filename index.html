@@ -342,6 +342,7 @@ document.body.appendChild(link);
   const reader = new FileReader();
 reader.addEventListener('loadend', () => {
    // reader.result contains the contents of blob as a typed array
+    document.querySelector('#div5').innerHTML = reader.result ;
 });
 reader.readAsArrayBuffer(blob);
 
