@@ -360,7 +360,8 @@ reader.readAsArrayBuffer(blob); */
   
    var reader = new FileReader();
    reader.onload = function() {
-   alert(reader.result);
+ //  alert(reader.result);
+   document.getElementById("div4").innerHTML += text ;
    }
    reader.readAsText(blob);
   
