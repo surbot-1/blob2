@@ -24,7 +24,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   
   <script>
-   function readMtlAtClient(){
+  /* function readMtlAtClient(){
 
        mtlFileContent = '';
 
@@ -42,7 +42,7 @@
        })(readerMTL);
 
        readerMTL.readAsDataURL(mtlFile);
-   }
+   } */
 </script>
   
   
@@ -338,6 +338,16 @@ link.href = url;
 link.innerText = 'Open the array URL';
 
 document.body.appendChild(link);
+  
+  const reader = new FileReader();
+reader.addEventListener('loadend', () => {
+   // reader.result contains the contents of blob as a typed array
+});
+reader.readAsArrayBuffer(blob);
+
+  // const text = await (new Response(blob)).text();
+  // const text = await blob.text();
+
 
   
   
