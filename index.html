@@ -386,7 +386,13 @@ document.body.appendChild(link);
 
    var reader2 = new FileReader();
    reader2.onload = function() {
-   document.getElementById("div4").innerHTML += reader.result ;
+   document.getElementById("div4").innerHTML += reader2.result ;
+   content = reader2.result;
+   var filename = "hello.txt";
+   var blob2 = new Blob([content], {
+   type: "text/plain;charset=utf-8"
+   saveAs(blob2, filename); 
+   });
    }
    reader2.readAsDataURL(bytes);
   
