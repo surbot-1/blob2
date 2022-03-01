@@ -16,6 +16,7 @@
 <input type="file">
 <textarea rows="10" cols="50"></textarea>
  <br> <br> <button onclick="saveFile()">Save</button>
+            <button onclick="downloadFile()">Download</button>
    
   <div id="div4"> </div>
   <div id="div5"> </div>
@@ -96,10 +97,9 @@
     
   var a, b, c, d ;
   
-   var input = document.querySelector('input[type=file]');
-   var textarea = document.querySelector('textarea');
+   
   
-   input.addEventListener('change', changeFile); 
+   
   
 /* function readFile(event) {
     textarea.textContent = event.target.result ;
@@ -109,28 +109,32 @@
     textarea.textContent = blob ;
     // document.querySelector('#div4') = blob ;
   } */
-      
+  
+input.addEventListener('change', changeFile); 
 function changeFile() {
     //
- /*   var blob;
+    var input = document.querySelector('input[type=file]');
+    var textarea = document.querySelector('textarea');
+    var blob;
     var file = input.files[0];
     var reader = new FileReader();
-  //  reader.addEventListener('load', readFile);
-    // reader.readAsText(file); 
-    reader.readAsArrayBuffer(file); 
-  //  reader.readAsDataURL(file);
+       //  reader.addEventListener('load', readFile);
+      // reader.readAsText(file); 
+
+      //  reader.readAsDataURL(file);
     reader.onload = function(e) {
        blob = new Blob([new Uint8Array(e.target.result)], {type: file.type });
-       console.log(blob); a=blob;
-    // var text = await blob.text() ;
+       console.log(blob);
+        // var text = await blob.text() ;
        textarea.textContent = e.target.result;
        document.querySelector('#div4').innerHTML = e.target.result ;
-       blob=a;
+       
        blob.text().then(text => {
        let blobText = text;
-       document.querySelector('#div5').innerHTML = blobText ;
+       document.querySelector('#div5').innerHTML += "<br>" + blobText ;
        });
-     } */
+     } 
+     reader.readAsArrayBuffer(file);
        
 /*  // var reader = new FileReader();
   reader.readAsText(blob); alert('readBlob');
@@ -422,16 +426,24 @@ reader.readAsArrayBuffer(blob); */
    reader.readAsArrayBuffer(blob);
   
   
+  function saveFile() {
+    
+     file = document.querySelector('input[type=file]').files[0];
      var reader2 = new FileReader();
      reader2.onload = function() {
         document.getElementById("div5").innerHTML += "<br>" + reader2.result ;
-        content = "hello world" ;  // reader2.result;
-        var filename = "abc.txt";
-        var blob2 = new Blob([content], { type: "text/plain;charset=utf-8" });
-         document.getElementById("div5").innerHTML += "<br>" + blob2 ;
-         saveAs(blob2, filename); 
+      
+       content = "hello world" ;  // reader2.result;
+        var fileType = "text/plain;charset=utf-8" ;
+        
+        var blob2 = new Blob([content], { type: fileType });
+         
+        document.getElementById("div5").innerHTML += "<br>" + blob2 ;
+         var filename = "abc.txt";
+          saveAs(blob2, filename); 
       }
-      reader2.readAsDataURL(bytes);
+      reader2.readAsDataURL(file);
+    }
   
   
 /*  var content = bytes // "What's up , hello world";
