@@ -47,6 +47,49 @@
 </script>
   
   
+<script> 
+
+  
+
+    //Create a 16byte buffer 
+
+    var buffer = new ArrayBuffer(16); 
+
+  
+
+    //Create a DataView referring to the buffer 
+
+    var view1 = new DataView(buffer); 
+
+  
+
+    //Create a Int8Array view referring to the buffer 
+
+    var view2 = new Int8Array(buffer); 
+
+  
+
+    //Put value of 32bits 
+
+    view1.setInt32(0, 0x76543210); 
+
+  
+
+    //prints the 32bit value 
+
+    document.write(view1.getInt32(0).toString(16) + "<br>");  
+
+      
+
+    //prints only 8bit value  
+
+    document.write(view1.getInt8(0).toString(16) + "<br>");  
+
+    document.write(view2[0].toString(16)); 
+
+  
+  </script>
+  
   
 <script>
     
