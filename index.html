@@ -441,7 +441,7 @@ document.body.appendChild(link);
   function submitFile() {
   
      document.getElementById("div4").innerHTML += "<br>"+" Submitting... ";
-   /*  var reader ;
+     var reader ;
      var blob ;
      
      var file = (document.querySelector('input[type=file]')).files[0];
@@ -450,7 +450,7 @@ document.body.appendChild(link);
      reader = new FileReader();
      reader.onload = fuction () {
             textarea.setContent = reader.result ;
-            blob = new Blob([new Uint8Array (reader.result) ], {type: "text/plain " }) ;
+            blob = new Blob([new Uint8Array (file) ], {type: " file.type " }) ;
            document.getElementById("div5").innerHTML += "<br>" + reader.result ;
            document.getElementById("div5").innerHTML += "<br>" + blob ;
            }
