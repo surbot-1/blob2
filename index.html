@@ -450,23 +450,26 @@ input.addEventListener("change", function () {
      document.getElementById("div4").innerHTML += "<br>"+" File Reading... ";
      var input = document.getElementById("file");
      var output = document.getElementById("textField");
-     var blob ;
+     var data, blob ;
   if (this.files && this.files[0]) {
     var file = this.files[0];
     var reader = new FileReader();
     
     reader.addEventListener('load', function (e) {
-      
-           blob = e.target.result ;
+      blob = new Blob([new Uint8Array (e.target.result) ], {type: " text/plain " }) ;
+           data = e.target.result ;
            var buf = e.reader.result ;
            var bufView = new Uint8Array(buf);
            output.textContent = e.target.result; 
            document.getElementById("div5").innerHTML += "<br>" + e.target.result ;
            document.getElementById("div5").innerHTML += "<br>" + bufView ;
+           document.getElementById("div5").innerHTML += "<br>" + blob ;
+          });
+          reader.readAsArrayBuffer(file);
+          }   
       });
-      reader.readAsArrayBuffer(file);
-      }   
-   });
+    
+     
  
     
 
@@ -474,7 +477,7 @@ input.addEventListener("change", function () {
    /*  reader = new FileReader();
      reader.onload = fuction () {
             // textarea.setContent = reader.result ;
-            blob = new Blob([new Uint8Array (target.result) ], {type: " file.type " }) ;
+            blob = new Blob([new Uint8Array (target.result) ], {type:  file.type  }) ;
            document.getElementById("div5").innerHTML += "<br>" + target.result ;
            document.getElementById("div5").innerHTML += "<br>" + blob ;
            }
