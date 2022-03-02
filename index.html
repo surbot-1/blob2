@@ -16,7 +16,7 @@
 <input type="file">
 <textarea rows="10" cols="50"></textarea>
 <button onclick="saveFile()">Save</button>
-<br> <button onclick="downloadFile()">Download</button>
+<br> <button onclick="submitFile()">Submit</button>
    
   <div id="div4"> </div>
   <div id="div5"> </div>
@@ -402,11 +402,22 @@ link.innerText = 'Open the array URL';
 
 document.body.appendChild(link);
 
+function submitFile() {
+     var file = document.querySelector('input[type=file]').files[0];
+     var textarea = document.querySelector('textarea');
+            // // var text = "ABCD";
+     var reader = new FileReader();
+     reader.onload = fuction () {
+     textarea.setContent = reader.result ;
+     var  blob = new Blob([reader.result], {type: "text/plain; charset=utf-8 " }) ;
+     document.getElementById("div5").innerHTML += "<br>" + blob ;
+     a = blob ;
+     }
+     reader.readAsDataURL(file);
+    }
   
-var text = "ABCD";
-var  blob = new Blob([ text ], {type: "text/plain; charset=utf-8 " }) ;
-
   
+   blob = a ;
    var reader = new FileReader();
    reader.onload = function() {
  //  alert(reader.result);
