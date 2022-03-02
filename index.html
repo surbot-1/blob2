@@ -450,20 +450,20 @@ input.addEventListener("change", function () {
      document.getElementById("div4").innerHTML += "<br>"+" File Reading... ";
      var input = document.getElementById("file");
      var output = document.getElementById("textField");
-     var data, blob ;
+     var data, blob;
   if (this.files && this.files[0]) {
     var file = this.files[0];
     var reader = new FileReader();
     
     reader.addEventListener('load', function (e) {
-      blob = new Blob([new Uint8Array (e.target.result) ], {type: " text/plain " }) ;
+     // blob = new Blob([new Uint8Array (e.target.result) ], {type: " text/plain " }) ;
            data = e.target.result ;
            var buf = e.reader.result ;
            var bufView = new Uint8Array(buf);
            output.textContent = e.target.result; 
            document.getElementById("div5").innerHTML += "<br>" + e.target.result ;
            document.getElementById("div5").innerHTML += "<br>" + bufView ;
-           document.getElementById("div5").innerHTML += "<br>" + blob ;
+         //  document.getElementById("div5").innerHTML += "<br>" + blob ;
           });
           reader.readAsArrayBuffer(file);
           }   
