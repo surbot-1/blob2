@@ -16,7 +16,7 @@
 <input type="file">
 <textarea rows="10" cols="50"></textarea>
 <button onclick="saveFile()">Save</button>
-<br> <button onclick="submitFile()">Submit</button>
+<br><br> <button onclick="submitFile()">Submit</button>
    
   <div id="div4"> </div>
   <div id="div5"> </div>
@@ -28,8 +28,8 @@
   
   <script>
     
-     function saveFile() { }
-     function downloadFile() { }
+    // function saveFile() { }
+    // function downloadFile() { }
     
     
   /* function readMtlAtClient(){
@@ -409,7 +409,7 @@ function submitFile() {
      var reader = new FileReader();
      reader.onload = fuction () {
      textarea.setContent = reader.result ;
-     var  blob = new Blob([reader.result], {type: "text/plain; charset=utf-8 " }) ;
+     var  blob = new Blob([reader.result], {type: "text/plain " }) ;
      document.getElementById("div5").innerHTML += "<br>" + blob ;
      a = blob ;
      }
@@ -417,7 +417,9 @@ function submitFile() {
     }
   
   
-   blob = a ;
+  
+   var text = "ABCD";
+   var  blob = new Blob([text], {type: "text/plain " }) ;
    var reader = new FileReader();
    reader.onload = function() {
  //  alert(reader.result);
