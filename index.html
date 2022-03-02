@@ -410,26 +410,26 @@ document.body.appendChild(link);
   
   
   
-   var text = "ABCD";
-   var  blob2 = new Blob([text], {type: "text/plain " }) ;
-   var reader2 = new FileReader();
-   reader2.onload = function() {
+ /*  var text2 = "ABCD";
+   var  blob3 = new Blob( new Uint8Array[text2], {type: "text/plain " }) ;
+   var reader3 = new FileReader();
+   reader3.onload = function(eve) {
  
-   var buf = reader2.result ;
-   var bufView = new Uint8Array(buf);
-  // // var bufffer = reader.result ;
+   var buf2 = eve.target.result ;
+   var bufView2 = new Uint8Array(buf);
+  // // var bufffer = eve.target.result ;
   
     
-        var  buffer = new ArrayBuffer(16);
-        var view = new DataView(buffer);
-        view.setInt8(0,bufView[0]);
-        view.setInt8(1,bufView[1]);
-    document.getElementById("div5").innerHTML += "<br>" + reader.result;
-    document.getElementById("div5").innerHTML += "<br>" + bufView ;
-    document.getElementById("div5").innerHTML += "<br>" + view.getInt8(0);
+        var  buffer2 = new ArrayBuffer(16);
+        var view2 = new DataView(buffer);
+        view2.setInt8(0,bufView2[0]);
+        view2.setInt8(1,bufView2[1]);
+    document.getElementById("div5").innerHTML += "<br>" + eve.target.result;
+    document.getElementById("div5").innerHTML += "<br>" + bufView2 ;
+    document.getElementById("div5").innerHTML += "<br>" + view2.getInt8(0);
    }
-   reader.readAsArrayBuffer(blob2);
-   
+   reader.readAsArrayBuffer(blob3);
+   */
   
    alert('2');
   
