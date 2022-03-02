@@ -447,10 +447,10 @@ document.body.appendChild(link);
      
     
 input.addEventListener("change", function () {
-     document.getElementById("div4").innerHTML += "<br>"+" File Reading... ";
+     document.getElementById("div4").innerHTML += "<br>" + " File Reading... " ;
      var input = document.getElementById("file");
      var output = document.getElementById("textField");
-     var data, blob;
+     var data ;  // blob;
   if (this.files && this.files[0]) {
     var file = this.files[0];
     var reader = new FileReader();
