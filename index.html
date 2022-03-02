@@ -13,7 +13,7 @@
   <input class="FullWidth" type="file" name="mtlFileInput" value="" id="mtlFileInput" 
   onchange="readMtlAtClient()" accept=".mtl"/> <br>
   -->
-<input type="file" id="file">
+<input type="file" name="file" id="file">
 <textarea rows="10" cols="50" id="textField"></textarea>
 <button onclick="saveFile()">Save</button>
 <br><br> <button onclick="submitFile()">Submit</button>
@@ -438,20 +438,37 @@ document.body.appendChild(link);
   
   <script>
   
-  function submitFile() {
+ // function submitFile() {
   
      document.getElementById("div4").innerHTML += "<br>"+" Submitting... ";
+     var input = document.getElementById("file");
+     var output = document.getElementById("textField");
      var reader ;
      var blob ;
-     
-     var file = (document.querySelector('input[type=file]')).files[0];
-     var textarea = document.querySelector('textarea');
+    
+input.addEventListener("change", function () {
+  if (this.files && this.files[0]) {
+    var file = this.files[0];
+    var reader = new FileReader();
+    
+    reader.addEventListener('load', function (e) {
+      output.textContent = e.target.result;
+      blob = new Blob([new Uint8Array (e.target.result) ], {type: " file.type " }) ;
+           document.getElementById("div5").innerHTML += "<br>" + e.target.result ;
+           document.getElementById("div5").innerHTML += "<br>" + blob ;
+    });
+    
+    reader.readAsBinaryString(file);
+    }   
+   });
+// }   
+
    
-     reader = new FileReader();
+   /*  reader = new FileReader();
      reader.onload = fuction () {
-            textarea.setContent = reader.result ;
-            blob = new Blob([new Uint8Array (file.ArrayBuffer) ], {type: " file.type " }) ;
-           document.getElementById("div5").innerHTML += "<br>" + reader.result ;
+            // textarea.setContent = reader.result ;
+            blob = new Blob([new Uint8Array (target.result) ], {type: " file.type " }) ;
+           document.getElementById("div5").innerHTML += "<br>" + target.result ;
            document.getElementById("div5").innerHTML += "<br>" + blob ;
            }
           reader.readAsArrayBuffer(file); */
@@ -471,7 +488,7 @@ document.body.appendChild(link);
          }
          reader.readAsArrayBuffer(blob);
       */
-   }
+   
   
   
   
