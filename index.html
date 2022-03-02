@@ -443,7 +443,7 @@ document.body.appendChild(link);
      document.getElementById("div4").innerHTML += "<br>"+" Submitting... ";
      var input = document.getElementById("file");
      var output = document.getElementById("textField");
-     var reader ;
+    // var reader ;
      var blob ;
     
 input.addEventListener("change", function () {
@@ -473,8 +473,8 @@ input.addEventListener("change", function () {
            }
           reader.readAsArrayBuffer(file); */
   
-    
-    reader = new FileReader();
+  function submitFile() {
+    var reader = new FileReader();
     reader.onload = function() {
            var buf = reader.result ;
            var bufView = new Uint8Array(buf);
@@ -487,7 +487,7 @@ input.addEventListener("change", function () {
          // document.getElementById("div5").innerHTML += "<br>" + view.getInt8(0);
          }
          reader.readAsArrayBuffer(blob);
-      
+      }
    
   
   
