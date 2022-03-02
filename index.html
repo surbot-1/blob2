@@ -450,7 +450,7 @@ document.body.appendChild(link);
      reader = new FileReader();
      reader.onload = fuction () {
             textarea.setContent = reader.result ;
-            blob = new Blob([reader.result], {type: "text/plain " }) ;
+            blob = new Blob([new Uint8Array (reader.result) ], {type: "text/plain " }) ;
            document.getElementById("div5").innerHTML += "<br>" + reader.result ;
            document.getElementById("div5").innerHTML += "<br>" + blob ;
            }
