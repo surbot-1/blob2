@@ -409,10 +409,12 @@ document.body.appendChild(link);
        
 <script>
   
+  alert('2');
+  
   function saveFile() {
   
    var text2 = "ABCD";
-   var  blob2 = new Blob( new Uint8Array[text2], {type: "text/plain " }) ;
+   var  blob2 = new Blob( [text2], {type: "text/plain"}) ;
    var reader2 = new FileReader();
    reader2.onload = function(eve) {
  
@@ -433,7 +435,7 @@ document.body.appendChild(link);
   
   }
   
-   alert('2');
+   
   
   
   </script>
@@ -469,7 +471,7 @@ input.addEventListener("change", function () {
            document.getElementById("div5").innerHTML += "<br>" + bufView ;
            document.getElementById("div5").innerHTML += "<br>" + blob ;
           });
-          reader.readAsArrayBuffer(file);
+          reader.readAsDataURL(file);
           }   
       });
     
