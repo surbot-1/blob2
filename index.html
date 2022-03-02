@@ -13,8 +13,8 @@
   <input class="FullWidth" type="file" name="mtlFileInput" value="" id="mtlFileInput" 
   onchange="readMtlAtClient()" accept=".mtl"/> <br>
   -->
-<input type="file">
-<textarea rows="10" cols="50"></textarea>
+<input type="file" id="file">
+<textarea rows="10" cols="50" id="textField"></textarea>
 <button onclick="saveFile()">Save</button>
 <br><br> <button onclick="submitFile()">Submit</button>
    
@@ -444,7 +444,7 @@ document.body.appendChild(link);
      var reader ;
      var blob ;
      
-     var file = document.querySelector('input[type=file]').files[0];
+     var file = (document.querySelector('input[type=file]')).files[0];
      var textarea = document.querySelector('textarea');
    
      reader = new FileReader();
