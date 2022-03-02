@@ -383,7 +383,7 @@ new DataView(buffer, byteOffset, byteLength) */
   
   alert('1');
   
-  /*
+  
   function typedArrayToURL(typedArray, mimeType) {
   return URL.createObjectURL(new Blob([typedArray.buffer], {type: mimeType})) ;
 }
@@ -414,21 +414,22 @@ document.body.appendChild(link);
    var  blob = new Blob([text], {type: "text/plain " }) ;
    var reader = new FileReader();
    reader.onload = function() {
- //  alert(reader.result);
+ 
    var buf = reader.result ;
    var bufView = new Uint8Array(buf);
   // // var bufffer = reader.result ;
-  // document.getElementById("div4").innerHTML += reader.result;
+  
     
-       // var  buffer = new ArrayBuffer(16);
-       // var view = new DataView(buffer);
-       // view.setInt8(0,bufView[0]);
-       // view.setInt8(1,bufView[1]);
-   document.getElementById("div5").innerHTML += "<br>" + bufView ;
-  // document.getElementById("div5").innerHTML += "<br>" + view.getInt8(0);
+        var  buffer = new ArrayBuffer(16);
+        var view = new DataView(buffer);
+        view.setInt8(0,bufView[0]);
+        view.setInt8(1,bufView[1]);
+    document.getElementById("div5").innerHTML += "<br>" + reader.result;
+    document.getElementById("div5").innerHTML += "<br>" + bufView ;
+    document.getElementById("div5").innerHTML += "<br>" + view.getInt8(0);
    }
    reader.readAsArrayBuffer(blob);
-   */
+   
   
    alert('2');
   
@@ -449,6 +450,7 @@ input.addEventListener("change", function () {
      document.getElementById("div4").innerHTML += "<br>"+" File Reading... ";
      var input = document.getElementById("file");
      var output = document.getElementById("textField");
+     var blob ;
   if (this.files && this.files[0]) {
     var file = this.files[0];
     var reader = new FileReader();
@@ -461,11 +463,11 @@ input.addEventListener("change", function () {
            output.textContent = e.target.result; 
            document.getElementById("div5").innerHTML += "<br>" + e.target.result ;
            document.getElementById("div5").innerHTML += "<br>" + bufView ;
-    });
-    reader.readAsArrayBuffer(file);
-    }   
+      });
+      reader.readAsArrayBuffer(file);
+      }   
    });
- }   
+ 
     
 
    
