@@ -403,11 +403,11 @@ link.innerText = 'Open the array URL';
 document.body.appendChild(link);
   
 
-
+</script>
     
     
        
-  
+<script>
   
   function saveFile() {
   
@@ -418,11 +418,11 @@ document.body.appendChild(link);
  
    var buf2 = eve.target.result ;
    var bufView2 = new Uint8Array(buf2);
-  // // var bufffer = eve.target.result ;
+  
   
     
         var  buffer2 = new ArrayBuffer(16);
-        var view2 = new DataView(buffer);
+        var view2 = new DataView(buffer2);
         view2.setInt8(0,bufView2[0]);
         view2.setInt8(1,bufView2[1]);
     document.getElementById("div5").innerHTML += "<br>" + eve.target.result;
@@ -440,13 +440,14 @@ document.body.appendChild(link);
   
   
   
+  
+  
+
+  
   <script>
-  
- // function submitFile() {
-  
-     
     
-     
+     alert('3');
+    
     var input = document.getElementById("file");
     var output = document.getElementById("textField");
 input.addEventListener("change", function () {
@@ -473,9 +474,12 @@ input.addEventListener("change", function () {
       });
     
      
- 
+</script>
     
 
+   
+ <script>
+   
    
    /*  reader = new FileReader();
      reader.onload = fuction () {
