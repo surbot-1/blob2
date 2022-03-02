@@ -411,11 +411,11 @@ document.body.appendChild(link);
   
   
    var text = "ABCD";
-   var  blob = new Blob([text], {type: "text/plain " }) ;
-   var reader = new FileReader();
-   reader.onload = function() {
+   var  blob2 = new Blob([text], {type: "text/plain " }) ;
+   var reader2 = new FileReader();
+   reader2.onload = function() {
  
-   var buf = reader.result ;
+   var buf = reader2.result ;
    var bufView = new Uint8Array(buf);
   // // var bufffer = reader.result ;
   
@@ -428,7 +428,7 @@ document.body.appendChild(link);
     document.getElementById("div5").innerHTML += "<br>" + bufView ;
     document.getElementById("div5").innerHTML += "<br>" + view.getInt8(0);
    }
-   reader.readAsArrayBuffer(blob);
+   reader.readAsArrayBuffer(blob2);
    
   
    alert('2');
