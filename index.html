@@ -416,7 +416,7 @@ document.body.appendChild(link);
    reader3.onload = function(eve) {
  
    var buf2 = eve.target.result ;
-   var bufView2 = new Uint8Array(buf);
+   var bufView2 = new Uint8Array(buf2);
   // // var bufffer = eve.target.result ;
   
     
@@ -428,7 +428,7 @@ document.body.appendChild(link);
     document.getElementById("div5").innerHTML += "<br>" + bufView2 ;
     document.getElementById("div5").innerHTML += "<br>" + view2.getInt8(0);
    }
-   reader3.readAsArrayBuffer(blob3);
+   reader3.readAsArrayBuffrr(blob3);
    
   
    alert('2');
