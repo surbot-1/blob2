@@ -401,8 +401,44 @@ link.href = url;
 link.innerText = 'Open the array URL';
 
 document.body.appendChild(link);
+  
 
-function submitFile() {
+
+    
+    
+       
+  
+  
+  
+   var text = "ABCD";
+   var  blob = new Blob([text], {type: "text/plain " }) ;
+   var reader = new FileReader();
+   reader.onload = function() {
+ //  alert(reader.result);
+   var buf = reader.result ;
+   var bufView = new Uint8Array(buf);
+  // // var bufffer = reader.result ;
+  // document.getElementById("div4").innerHTML += reader.result;
+    
+       // var  buffer = new ArrayBuffer(16);
+       // var view = new DataView(buffer);
+       // view.setInt8(0,bufView[0]);
+       // view.setInt8(1,bufView[1]);
+   document.getElementById("div5").innerHTML += "<br>" + bufView ;
+  // document.getElementById("div5").innerHTML += "<br>" + view.getInt8(0);
+   }
+   reader.readAsArrayBuffer(blob);
+  
+   alert('2');
+  
+  
+  </script>
+  
+  
+  
+  <script>
+  
+  function submitFile() {
   
      document.getElementById("div4").innerHTML += "<br>"+" Submitting... ";
      var reader ;
@@ -436,32 +472,8 @@ function submitFile() {
          reader.readAsArrayBuffer(blob);
   
    }
-    
-    
-       
   
   
-  
-   var text = "ABCD";
-   var  blob = new Blob([text], {type: "text/plain " }) ;
-   var reader = new FileReader();
-   reader.onload = function() {
- //  alert(reader.result);
-   var buf = reader.result ;
-   var bufView = new Uint8Array(buf);
-  // // var bufffer = reader.result ;
-  // document.getElementById("div4").innerHTML += reader.result;
-    
-       // var  buffer = new ArrayBuffer(16);
-       // var view = new DataView(buffer);
-       // view.setInt8(0,bufView[0]);
-       // view.setInt8(1,bufView[1]);
-   document.getElementById("div5").innerHTML += "<br>" + bufView ;
-  // document.getElementById("div5").innerHTML += "<br>" + view.getInt8(0);
-   }
-   reader.readAsArrayBuffer(blob);
-  
-   alert('2');
   
  /* function saveFile() {
         var abc = "hello world" ;
