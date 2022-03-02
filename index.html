@@ -382,7 +382,7 @@ new DataView(buffer, byteOffset, byteLength) */
   
   var blob;
   function typedArrayToURL(typedArray, mimeType) {
-  return URL.createObjectURL(blob=(new Blob([typedArray.buffer], {type: mimeType}))) ;
+  return URL.createObjectURL(blob=(new Blob([typedArray.buffer], {type: mimeType}))) 
 }
 
 const bytes = new Uint8Array(59);
@@ -419,6 +419,7 @@ document.body.appendChild(link);
    }
    reader.readAsArrayBuffer(blob);
   
+   alert('3');
   
  /* function saveFile() {
         var abc = "hello world" ;
@@ -451,7 +452,7 @@ type: "text/plain;charset=utf-8"
 
 
   
-  alert('3');
+  
   
   
 /*  // create an ArrayBuffer with a size in bytes
