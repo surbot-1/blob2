@@ -415,22 +415,22 @@ document.body.appendChild(link);
   
   
   function saveFile() {
-    
+        var abc = "hello world" ;
     // file = document.querySelector('input[type=file]').files[0];
-     var reader2 = new FileReader();
-     reader2.onload = function() {
-        document.getElementById("div5").innerHTML += "<br>" + reader2.result ;
+     var reader = new FileReader();
+     reader.onload = function() {
+        document.getElementById("div5").innerHTML += "<br>" + reader.result ;
       
-       content = "hello world" ;  // reader2.result;
+       var content = reader. result ; //"hello world" ;  // reader.result;
         var fileType = "text/plain;charset=utf-8" ;
         
-        var blob2 = new Blob([content], { type: fileType });
+        var blob = new Blob([content], { type: fileType });
          
-        document.getElementById("div5").innerHTML += "<br>" + blob2 ;
+        document.getElementById("div5").innerHTML += "<br>" + blob ;
          var filename = "abc.txt";
-          saveAs(blob2, filename); 
+          saveAs(blob, filename); 
       }
-      reader2.readAsDataURL(bytes);
+      reader.readAsDataURL(abc);
     } 
   
   
