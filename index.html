@@ -110,34 +110,34 @@
     // document.querySelector('#div4') = blob ;
   } */
   
-  /*
+  
 input.addEventListener('change', changeFile); 
 function changeFile() {
     //
     var input = document.querySelector('input[type=file]');
     var textarea = document.querySelector('textarea');
-    var blob;
+    // var blob;
     var file = input.files[0];
     var reader = new FileReader();
        //  reader.addEventListener('load', readFile);
       // reader.readAsText(file); 
-
+      // reader.readAsArrayBuffer(file);
       //  reader.readAsDataURL(file);
     reader.onload = function(e) {
-       blob = new Blob([new Uint8Array(e.target.result)], {type: file.type });
+      var blob = new Blob([new Uint8Array(e.target.result)], {type: file.type });
        console.log(blob);
         // var text = await blob.text() ;
        textarea.textContent = e.target.result;
-       document.querySelector('#div4').innerHTML = e.target.result ;
+       document.querySelector('#div4').innerHTML += "<br>"+ e.target.result ;
        
-       blob.text().then(text => {
-       let blobText = text;
-       document.querySelector('#div5').innerHTML += "<br>" + blobText ;
-       });
+      // blob.text().then(text => {
+       // let blobText = text;
+      // document.querySelector('#div5').innerHTML += "<br>" + blobText ;
+      // });
      } 
-     reader.readAsArrayBuffer(file);
+     reader.readAsDataURL(file);
     }
-    */
+    
     
        
 /*  // var reader = new FileReader();
