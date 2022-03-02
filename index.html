@@ -385,7 +385,7 @@ new DataView(buffer, byteOffset, byteLength) */
   
   const blob;
   function typedArrayToURL(typedArray, mimeType) {
-  return URL.createObjectURL(blob=(new Blob([typedArray.buffer], {type: mimeType}))) 
+  return URL.createObjectURL(blob=(new Blob([typedArray.buffer], {type: mimeType}))) ;
 }
 
 const bytes = new Uint8Array(59);
