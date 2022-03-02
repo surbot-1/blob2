@@ -459,7 +459,7 @@ input.addEventListener("change", function () {
            document.getElementById("div5").innerHTML += "<br>" + blob ;
     });
     
-    reader.readAsBinaryString(file);
+    reader.readAsArrayBuffer(file);
     }   
    });
 // }   
@@ -542,7 +542,9 @@ console.log(view2.getInt8(0));
   // reader.readAsText(file); 
    // reader.readAsArrayBuffer(file); 
   //  reader.readAsDataURL(file);
-  
+    
+ // reader.readAsBinaryString(file);
+    
 /* function convert() {
    var buf = [0x02, 0x01, 0x03, 0x07] ;
   function ab2str(buf) {
