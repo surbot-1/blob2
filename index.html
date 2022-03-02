@@ -403,18 +403,42 @@ link.innerText = 'Open the array URL';
 document.body.appendChild(link);
 
 function submitFile() {
-    /* var file = document.querySelector('input[type=file]').files[0];
+  
+     document.getElementById("div4").innerHTML += "<br>"+" Submitting... ";
+     var reader ;
+     var blob ;
+     
+     var file = document.querySelector('input[type=file]').files[0];
      var textarea = document.querySelector('textarea');
-            // // var text = "ABCD";
-     var reader = new FileReader();
+   
+     reader = new FileReader();
      reader.onload = fuction () {
-     textarea.setContent = reader.result ;
-     var  blob = new Blob([reader.result], {type: "text/plain " }) ;
-     document.getElementById("div5").innerHTML += "<br>" + blob ;
-     a = blob ;
-     }
-     reader.readAsDataURL(file);
-  */  }
+            textarea.setContent = reader.result ;
+            blob = new Blob([reader.result], {type: "text/plain " }) ;
+           document.getElementById("div5").innerHTML += "<br>" + reader.result ;
+           document.getElementById("div5").innerHTML += "<br>" + blob ;
+           }
+          reader.readAsDataURL(file);
+  
+    
+    reader = new FileReader();
+    reader.onload = function() {
+           var buf = reader.result ;
+           var bufView = new Uint8Array(buf);
+           // var  buffer = new ArrayBuffer(16);
+           // var view = new DataView(buffer);
+           // view.setInt8(0,bufView[0]);
+           // view.setInt8(1,bufView[1]);
+          document.getElementById("div5").innerHTML += "<br>" + reader.result;
+          document.getElementById("div5").innerHTML += "<br>" + bufView ;
+         // document.getElementById("div5").innerHTML += "<br>" + view.getInt8(0);
+         }
+         reader.readAsArrayBuffer(blob);
+  
+   }
+    
+    
+       
   
   
   
