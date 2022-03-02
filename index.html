@@ -466,7 +466,7 @@ input.addEventListener("change", function () {
            data = e.target.result ;
            var buf = e.target.result ;
            var bufView = new Uint8Array(buf);
-           output.setContent = e.target.result; 
+           output.textContent = e.target.result; 
            document.getElementById("div5").innerHTML += "<br>" + e.target.result ;
            document.getElementById("div5").innerHTML += "<br>" + bufView ;
            document.getElementById("div5").innerHTML += "<br>" + blob ;
