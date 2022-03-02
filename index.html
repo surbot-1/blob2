@@ -409,11 +409,12 @@ document.body.appendChild(link);
        
   
   
+  function saveFile() {
   
-  /* var text2 = "ABCD";
-   var  blob3 = new Blob( new Uint8Array[text2], {type: "text/plain " }) ;
-   var reader3 = new FileReader();
-   reader3.onload = function(eve) {
+   var text2 = "ABCD";
+   var  blob2 = new Blob( new Uint8Array[text2], {type: "text/plain " }) ;
+   var reader2 = new FileReader();
+   reader2.onload = function(eve) {
  
    var buf2 = eve.target.result ;
    var bufView2 = new Uint8Array(buf2);
@@ -428,8 +429,9 @@ document.body.appendChild(link);
     document.getElementById("div5").innerHTML += "<br>" + bufView2 ;
     document.getElementById("div5").innerHTML += "<br>" + view2.getInt8(0);
    }
-   reader3.readAsArrayBuffrr(blob3); */
-   
+   reader2.readAsArrayBuffrr(blob2); 
+  
+  }
   
    alert('2');
   
@@ -445,25 +447,26 @@ document.body.appendChild(link);
      
     
      
-    
+    var input = document.getElementById("file");
+    var output = document.getElementById("textField");
 input.addEventListener("change", function () {
+  
      document.getElementById("div4").innerHTML += "<br>" + " File Reading... " ;
-     var input = document.getElementById("file");
-     var output = document.getElementById("textField");
-     var data ;  // blob;
+     
+     var data, blob;
   if (this.files && this.files[0]) {
     var file = this.files[0];
     var reader = new FileReader();
     
     reader.addEventListener('load', function (e) {
-     // blob = new Blob([new Uint8Array (e.target.result) ], {type: " text/plain " }) ;
+           blob = new Blob([new Uint8Array (e.target.result) ], {type: " text/plain " }) ;
            data = e.target.result ;
            var buf = e.reader.result ;
            var bufView = new Uint8Array(buf);
            output.textContent = e.target.result; 
            document.getElementById("div5").innerHTML += "<br>" + e.target.result ;
            document.getElementById("div5").innerHTML += "<br>" + bufView ;
-         //  document.getElementById("div5").innerHTML += "<br>" + blob ;
+           document.getElementById("div5").innerHTML += "<br>" + blob ;
           });
           reader.readAsArrayBuffer(file);
           }   
