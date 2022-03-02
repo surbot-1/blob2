@@ -381,7 +381,7 @@ new DataView(buffer, byteOffset, byteLength) */
   new Blob(["decoded_base64_String"])
   ], "output_file_name");  */
   
-  alert('3');
+  alert('1');
   
   
   function typedArrayToURL(typedArray, mimeType) {
@@ -403,7 +403,8 @@ link.innerText = 'Open the array URL';
 document.body.appendChild(link);
 
   
-var  blob = new Blob([ bytes.buffer ], {type: "text/plain" }) ;
+var text = "ABCD";
+var  blob = new Blob([ text.buffer ], {type: "text/plain" }) ;
 
   
    var reader = new FileReader();
@@ -423,7 +424,7 @@ var  blob = new Blob([ bytes.buffer ], {type: "text/plain" }) ;
    }
    reader.readAsArrayBuffer(blob);
   
-   alert('4');
+   alert('2');
   
  /* function saveFile() {
         var abc = "hello world" ;
