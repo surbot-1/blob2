@@ -441,28 +441,32 @@ document.body.appendChild(link);
   
  // function submitFile() {
   
-     document.getElementById("div4").innerHTML += "<br>"+" Submitting... ";
-     var input = document.getElementById("file");
-     var output = document.getElementById("textField");
-    // var reader ;
-     var blob ;
+     
+    
+     
     
 input.addEventListener("change", function () {
+     document.getElementById("div4").innerHTML += "<br>"+" File Reading... ";
+     var input = document.getElementById("file");
+     var output = document.getElementById("textField");
   if (this.files && this.files[0]) {
     var file = this.files[0];
     var reader = new FileReader();
     
     reader.addEventListener('load', function (e) {
-      output.textContent = e.target.result;
-      blob = new Blob([new Uint8Array (e.target.result) ], {type: " file.type " }) ;
+      
+           blob = e.target.result ;
+           var buf = e.reader.result ;
+           var bufView = new Uint8Array(buf);
+           output.textContent = e.target.result; 
            document.getElementById("div5").innerHTML += "<br>" + e.target.result ;
-           document.getElementById("div5").innerHTML += "<br>" + blob ;
+           document.getElementById("div5").innerHTML += "<br>" + bufView ;
     });
-    
     reader.readAsArrayBuffer(file);
     }   
    });
  }   
+    
 
    
    /*  reader = new FileReader();
@@ -474,7 +478,7 @@ input.addEventListener("change", function () {
            }
           reader.readAsArrayBuffer(file); */
   
-  function submitFile() {
+/*  function submitFile() {
     var reader = new FileReader();
     reader.onload = function() {
            var buf = reader.result ;
@@ -483,12 +487,12 @@ input.addEventListener("change", function () {
            // var view = new DataView(buffer);
            // view.setInt8(0,bufView[0]);
            // view.setInt8(1,bufView[1]);
-          document.getElementById("div5").innerHTML += "<br>" + reader.result;
-          document.getElementById("div5").innerHTML += "<br>" + bufView ;
-         // document.getElementById("div5").innerHTML += "<br>" + view.getInt8(0);
-         }
-         reader.readAsArrayBuffer(blob);
-      //}
+           document.getElementById("div5").innerHTML += "<br>" + reader.result;
+           document.getElementById("div5").innerHTML += "<br>" + bufView ;
+           // document.getElementById("div5").innerHTML += "<br>" + view.getInt8(0);
+           }
+          reader.readAsArrayBuffer(blob);
+        } */
    
   
   
