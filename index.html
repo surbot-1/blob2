@@ -381,11 +381,11 @@ new DataView(buffer, byteOffset, byteLength) */
   new Blob(["decoded_base64_String"])
   ], "output_file_name");  */
   
+  alert('2');
   
-  
-  
+  var blob ;
   function typedArrayToURL(typedArray, mimeType) {
-  return URL.createObjectURL(new Blob([typedArray.buffer], {type: mimeType})) ;
+  return URL.createObjectURL(blob=(new Blob([typedArray.buffer], {type: mimeType}))) ;
 }
 
 const bytes = new Uint8Array(59);
@@ -395,7 +395,7 @@ for(let i = 0; i < 59; i++) {
 }
 
 const url = typedArrayToURL(bytes, 'text/plain');
-var blob = bytes ;
+// blob = bytes ;
 const link = document.createElement('a');
 link.href = url; 
 link.innerText = 'Open the array URL';
